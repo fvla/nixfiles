@@ -1,5 +1,6 @@
 # Some quick notes:
 # - configuration.nix is the global configuration for all machines.
+# - ZenNix is a desktop machine with an NVIDIA GPU.
 # - MBP142 is the MacBook Pro 14,2 (2017) T1 laptop, with special hardware support for audio and touchbar.
 # - system.stateVersion should never be changed unless installing from scratch or after reading the NixOS docs.
 # - Define users setup in users.nix and place in /etc/nixos. See examples/users.nix for a template.
@@ -20,6 +21,7 @@
         impermanence.nixosModules.impermanence
         ./impermanence-lite.nix
         ./configuration.nix ./hardware-configuration.nix ./users.nix
+        ./hardware/nvidia.nix
         ./desktop/gnome.nix
         { networking.hostName = "ZenNix"; }
         { system.stateVersion = "25.11"; }
