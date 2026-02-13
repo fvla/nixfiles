@@ -19,8 +19,8 @@
     nixosConfigurations.ZenNix = nixpkgs.lib.nixosSystem {
       modules = [
         impermanence.nixosModules.impermanence
+        ./hardware-configuration.nix ./configuration.nix ./users.nix
         ./impermanence-lite.nix
-        ./configuration.nix ./hardware-configuration.nix ./users.nix
         ./hardware/nvidia.nix
         ./desktop/gnome.nix
         { networking.hostName = "ZenNix"; }
@@ -30,7 +30,7 @@
 
     nixosConfigurations.MBP142 = nixpkgs.lib.nixosSystem {
       modules = [
-        ./configuration.nix ./hardware-configuration.nix ./users.nix
+        ./hardware-configuration.nix ./configuration.nix ./users.nix
         ./hardware/MBP142.nix
         ./desktop/pantheon.nix
         nixos-hardware.nixosModules.apple-macbook-pro-14-1
