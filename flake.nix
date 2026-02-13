@@ -8,18 +8,24 @@
   description = "NixOS root system flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    sysflake.url = "/etc/nixos";
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.follows = "sysflake/nixpkgs";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     impermanence.url = "github:nix-community/impermanence";
     impermanence.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, impermanence, ... }@inputs: {
+  outputs = { self, sysflake, nixpkgs, nixos-hardware, impermanence, ... }@inputs: {
     nixosConfigurations.ZenNix = nixpkgs.lib.nixosSystem {
       modules = [
         impermanence.nixosModules.impermanence
-        ./hardware-configuration.nix ./configuration.nix ./users.nix
+
+        sysflake.nixosModules.hardware-configuration
+        sysflake.nixosModules.users
+        ./configuration.nix
         ./impermanence-lite.nix
         ./hardware/nvidia.nix
         ./desktop/gnome.nix
@@ -30,7 +36,9 @@
 
     nixosConfigurations.MBP142 = nixpkgs.lib.nixosSystem {
       modules = [
-        ./hardware-configuration.nix ./configuration.nix ./users.nix
+        sysflake.nixosModules.hardware-configuration
+        sysflake.nixosModules.users
+        ./configuration.nix
         ./hardware/MBP142.nix
         ./desktop/pantheon.nix
         nixos-hardware.nixosModules.apple-macbook-pro-14-1
