@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -11,7 +11,5 @@
 
     powerManagement.enable = false;
     nvidiaPersistenced = true;
-
-    cudaSupport = true;
   };
 }

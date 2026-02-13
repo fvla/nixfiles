@@ -26,7 +26,7 @@
         sysflake.nixosModules.hardware-configuration
         sysflake.nixosModules.users
         ./configuration.nix
-        ./impermanence-lite.nix
+        ./storage/impermanence-lite.nix
         ./hardware/nvidia.nix
         ./desktop/gnome.nix
         { networking.hostName = "ZenNix"; }

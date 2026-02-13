@@ -1,10 +1,11 @@
 # Impermanence "lite" because we fully persist /var.
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 let
-  makeFs = name: {
+  makeFs = name: lib.mkForce {
     device = "/dev/disk/by-label/NixRoot";
     fsType = "btrfs";
     options = [ "subvol=@${name}" "compress=zstd" ];
+    neededForBoot = name == "persist";
   };
 in
 {
@@ -21,7 +22,7 @@ in
   # Btrfs persistent subvolumes
   # ============================
   fileSystems."/home" = makeFs "home";
-  fileSystems."/nix" = makes "nix";
+  fileSystems."/nix" = makeFs "nix";
   fileSystems."/persist" = makeFs "persist";
   fileSystems."/var" = makeFs "var";
   fileSystems."/var/log" = makeFs "log";
