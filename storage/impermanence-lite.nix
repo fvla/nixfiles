@@ -21,6 +21,7 @@ in
   # Btrfs persistent subvolumes
   # ============================
   fileSystems."/home" = makeFs "home";
+  fileSystems."/nix" = makes "nix";
   fileSystems."/persist" = makeFs "persist";
   fileSystems."/var" = makeFs "var";
   fileSystems."/var/log" = makeFs "log";
