@@ -1,6 +1,5 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     # This flake depends on nixfiles...
     nixfiles.url = "github:fvla/nixfiles";
     # ...and nixfiles depends on this flake. This works because the outputs themselves have no circular dependencies.
