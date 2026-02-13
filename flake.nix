@@ -30,7 +30,7 @@
         ./hardware/nvidia.nix
         ./desktop/gnome.nix
         { networking.hostName = "ZenNix"; }
-        { system.stateVersion = "25.05"; }
+        { system.stateVersion = "25.11"; }
       ];
     };
 
