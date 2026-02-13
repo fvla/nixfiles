@@ -15,7 +15,7 @@
     impermanence.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, ... }@inputs: {
+  outputs = { self, nixpkgs, nixos-hardware, impermanence, ... }@inputs: {
     nixosConfigurations.ZenNix = nixpkgs.lib.nixosSystem {
       modules = [
         impermanence.nixosModules.impermanence
