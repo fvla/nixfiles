@@ -77,16 +77,12 @@
       "inputs": {
         "impermanence": "impermanence",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": [
-          "sysflake",
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs",
         "sysflake": "sysflake"
       }
     },
     "sysflake": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
       },
       "locked": {
         "lastModified": 1770962459,
