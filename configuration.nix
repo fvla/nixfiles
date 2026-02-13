@@ -7,7 +7,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
 
   # ===== Networking =====
   networking.hostName = lib.mkDefault "generic-nix";
