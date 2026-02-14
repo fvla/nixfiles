@@ -46,10 +46,6 @@ in
       "/etc/nixos"
     ];
     files = [
-      "/etc/passwd"
-      "/etc/group"
-      "/etc/shadow"
-      "/etc/gshadow"
       "/etc/machine-id"
 
       "/etc/ssh/ssh_host_ed25519_key"
@@ -58,6 +54,7 @@ in
       "/etc/ssh/ssh_host_rsa_key.pub"
     ];
   };
+  environment.etc."shadow".source = "/nix/persist/etc/shadow"; # For passwords
 
   security.sudo.extraConfig = ''
     # rollback results in sudo lectures after each reboot
