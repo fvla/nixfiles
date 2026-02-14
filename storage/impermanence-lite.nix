@@ -10,6 +10,15 @@ let
 in
 {
   # ============================
+  # /boot partition
+  # ============================
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/NixEFI";
+    fsType = "vfat";
+    options = [ "umask=0077" ]; # make /boot more secure
+  };
+
+  # ============================
   # Root on tmpfs (ephemeral /)
   # ============================
   fileSystems."/" = lib.mkForce {
