@@ -8,6 +8,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_6_18;
+  fileSystems."/boot".options = [ "umask=0077" ]; # make /boot more secure
 
   # ===== Networking =====
   networking.hostName = lib.mkDefault "generic-nix";
