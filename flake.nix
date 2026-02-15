@@ -29,6 +29,7 @@
         ./desktop/gnome.nix
         { networking.hostName = "ZenNix"; }
         { system.stateVersion = "25.11"; }
+        { nixpkgs.hostPlatform = "x86_64-linux"; }
       ];
     };
 
@@ -41,6 +42,7 @@
         nixos-hardware.nixosModules.apple-macbook-pro-14-1
         { networking.hostName = "MBP142"; }
         { system.stateVersion = "25.05"; }
+        { nixpkgs.hostPlatform = "x86_64-linux"; }
       ];
     };
   };
