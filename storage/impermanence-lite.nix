@@ -24,7 +24,7 @@ in
   fileSystems."/" = lib.mkForce {
     device = "none";
     fsType = "tmpfs";
-    options = ["mode=755" "size=1G"];
+    options = [ "defaults" "mode=755" "size=1G" ];
   };
 
   # ============================
