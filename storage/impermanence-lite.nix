@@ -63,7 +63,6 @@ in
       "/etc/ssh/ssh_host_rsa_key.pub"
     ];
   };
-  environment.etc."shadow".source = "/persist/etc/shadow"; # For passwords
 
   security.sudo.extraConfig = ''
     # rollback results in sudo lectures after each reboot
