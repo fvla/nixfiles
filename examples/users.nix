@@ -6,5 +6,6 @@
     description = "me";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
+    initialPassword = "";
   };
 }
