@@ -22,7 +22,6 @@
       modules = [
         impermanence.nixosModules.impermanence
 
-        sysflake.nixosModules.hardware-configuration
         sysflake.nixosModules.users
         ./configuration.nix
         ./storage/impermanence-lite.nix
@@ -35,7 +34,6 @@
 
     nixosConfigurations.MBP142 = nixpkgs.lib.nixosSystem {
       modules = [
-        sysflake.nixosModules.hardware-configuration
         sysflake.nixosModules.users
         ./configuration.nix
         ./hardware/MBP142.nix

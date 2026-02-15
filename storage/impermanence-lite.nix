@@ -1,7 +1,7 @@
 # Impermanence "lite" because we fully persist /var.
 { lib, config, pkgs, ... }:
 let
-  makeFs = name: lib.mkForce {
+  makeFs = name: {
     device = "/dev/disk/by-label/NixRoot";
     fsType = "btrfs";
     options = [ "subvol=@${name}" "compress=zstd" ];
@@ -21,8 +21,8 @@ in
   # ============================
   # Root on tmpfs (ephemeral /)
   # ============================
-  fileSystems."/" = lib.mkForce {
-    device = "none";
+  fileSystems."/" = {
+    device = "tmpfs";
     fsType = "tmpfs";
     options = [ "defaults" "mode=755" "size=1G" ];
   };
