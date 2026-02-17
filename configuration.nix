@@ -14,6 +14,7 @@
   networking.networkmanager.enable = true;
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
   networking.networkmanager.dns = "none";  # prevents NM from overwriting resolv.conf
+  networking.firewall.enable = false;
   services.openssh.enable = true;
 
 
