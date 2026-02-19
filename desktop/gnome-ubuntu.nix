@@ -5,7 +5,7 @@ let
 in
 gnome // {
   environment.systemPackages = with pkgs; [ yaru-theme ];
-  programs.gnome-shell.extensions = with pkgs.gnomeExtensions; [ dash-to-dock appindicator desktop-icons-ng ];
+  programs.gnome-shell.extensions = with pkgs.gnomeExtensions; [ dash-to-dock appindicator gtk4-desktop-icons-ng-ding ];
   services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
     [org.gnome.desktop.interface]
     gtk-theme='Yaru'
