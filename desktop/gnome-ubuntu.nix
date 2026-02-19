@@ -1,7 +1,7 @@
 # Replicate the Ubuntu feel on NixOS.
-{ config, pkgs, ... }:
+{ config, pkgs, ... }@inputs:
 let 
-  gnome = import ./gnome.nix;
+  gnome = import ./gnome.nix inputs;
 in
 gnome // {
   environment.systemPackages = with pkgs; [ yaru-theme ];
