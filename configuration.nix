@@ -16,6 +16,11 @@
   networking.networkmanager.dns = "none";  # prevents NM from overwriting resolv.conf
   networking.firewall.enable = false;
   services.openssh.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    openFirewall = true;
+  };
 
 
   # ===== Less common options =====
