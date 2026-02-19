@@ -18,6 +18,6 @@ gnome // {
     dash-max-icon-size=48
     autohide=true
   '';
-  fonts.packages = with pkgs; [ ubuntu-font-family ];
+  fonts.packages = with pkgs; [ ubuntu-sans ];
   services.udev.packages = [ pkgs.libappindicator ];
 }
