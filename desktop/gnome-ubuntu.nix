@@ -2,10 +2,10 @@
 { config, pkgs, ... }@inputs:
 let 
   gnome = import ./gnome.nix inputs;
+  gnomeExtensions = with pkgs.gnomeExtensions; [ dash-to-dock appindicator gtk4-desktop-icons-ng-ding ];
 in
 gnome // {
-  environment.systemPackages = with pkgs; [ yaru-theme ];
-  programs.gnome-shell.extensions = with pkgs.gnomeExtensions; [ dash-to-dock appindicator gtk4-desktop-icons-ng-ding ];
+  environment.systemPackages = with pkgs; [ yaru-theme ] ++ gnomeExtensions;
   services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
     [org.gnome.desktop.interface]
     gtk-theme='Yaru'
