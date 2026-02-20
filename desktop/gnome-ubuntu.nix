@@ -19,5 +19,4 @@ gnome // {
     autohide=true
   '';
   fonts.packages = with pkgs; [ ubuntu-sans ];
-  services.udev.packages = [ pkgs.libappindicator ];
 }
