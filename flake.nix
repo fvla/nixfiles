@@ -27,6 +27,7 @@
         ./storage/impermanence-lite.nix
         ./hardware/nvidia.nix
         ./desktop/hyprland.nix
+        ./programs/steam.nix
         { networking.hostName = "ZenNix"; }
         { system.stateVersion = "25.11"; }
         { nixpkgs.hostPlatform = "x86_64-linux"; }
