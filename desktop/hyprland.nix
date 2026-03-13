@@ -12,7 +12,7 @@
     kdePackages.kio
     kdePackages.kio-fuse
     kdePackages.kio-extras
-    hyprpaper hyprpicker hyprshot hyprbars
+    hyprpaper hyprpicker hyprshot
     waybar
   ];
   fonts.packages = with pkgs; [ font-awesome_4 ]; # for waybar
