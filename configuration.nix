@@ -8,6 +8,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_6_18;
+  boot.supportedFilesystems = [ "btrfs" "vfat" "tmpfs" "ext4" "ntfs" ];
 
   # ===== Networking =====
   networking.hostName = lib.mkDefault "generic-nix";
