@@ -12,12 +12,16 @@
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
     impermanence.url = "github:nix-community/impermanence";
     impermanence.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, sysflake, nixpkgs, nixos-hardware, impermanence, ... }@inputs: {
+  outputs = { self, sysflake, nixpkgs, nixos-hardware, nix-cachyos-kernel, impermanence, ... }@inputs:
+    let
+      cachyosKernels = import "${self}/kernels/cachyos.nix" { inherit nix-cachyos-kernel; };
+    in {
     nixosConfigurations.ZenNix = nixpkgs.lib.nixosSystem {
       modules = [
         impermanence.nixosModules.impermanence
@@ -28,6 +32,7 @@
         ./hardware/nvidia.nix
         ./desktop/hyprland.nix
         ./programs/steam.nix
+        cachyosKernels.linux-cachyos-latest-lto-zen4
         { networking.hostName = "ZenNix"; }
         { system.stateVersion = "25.11"; }
         { nixpkgs.hostPlatform = "x86_64-linux"; }
