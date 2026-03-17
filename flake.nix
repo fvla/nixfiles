@@ -11,6 +11,7 @@
     sysflake.url = "/etc/nixos";
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
@@ -18,11 +19,12 @@
     impermanence.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, sysflake, nixpkgs, nixos-hardware, nix-cachyos-kernel, impermanence, ... }@inputs:
+  outputs = { self, sysflake, nixpkgs, nixpkgs-unstable, nixos-hardware, nix-cachyos-kernel, impermanence, ... }@inputs:
     let
       cachyosKernels = import "${self}/kernels/cachyos.nix" { inherit nix-cachyos-kernel; };
     in {
     nixosConfigurations.ZenNix = nixpkgs.lib.nixosSystem {
+      specialArgs = { pkgs-unstable = nixpkgs-unstable.legacyPackages.x86_64-linux; };
       modules = [
         impermanence.nixosModules.impermanence
 
@@ -40,6 +42,7 @@
     };
 
     nixosConfigurations.MBP142 = nixpkgs.lib.nixosSystem {
+      specialArgs = { pkgs-unstable = nixpkgs-unstable.legacyPackages.x86_64-linux; };
       modules = [
         sysflake.nixosModules.users
         ./configuration.nix
