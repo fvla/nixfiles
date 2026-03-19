@@ -2,8 +2,9 @@
 {
   services.displayManager.ly.enable = true;
   programs.hyprland.enable = true;
+  programs.hyprland.package = pkgs-unstable.hyprland;
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   programs.firefox.enable = true;
   environment.systemPackages = with pkgs-unstable; [
     kitty wofi
