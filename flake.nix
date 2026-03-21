@@ -33,6 +33,7 @@
         ./storage/impermanence-lite.nix
         ./hardware/nvidia.nix
         ./desktop/hyprland.nix
+        ./programs/podman.nix
         ./programs/steam.nix
         cachyosKernels.linux-cachyos-latest-lto-zen4
         { networking.hostName = "ZenNix"; }
