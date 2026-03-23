@@ -17,6 +17,8 @@
 
     impermanence.url = "github:nix-community/impermanence";
     impermanence.inputs.nixpkgs.follows = "nixpkgs";
+
+    hyprland-custom.url = "github:fvla/Hyprland/scroll-center-behavior";
   };
 
   outputs = { self, sysflake, nixpkgs, nixpkgs-unstable, nixos-hardware, nix-cachyos-kernel, impermanence, ... }@inputs:
@@ -24,7 +26,10 @@
       cachyosKernels = import "${self}/kernels/cachyos.nix" { inherit nix-cachyos-kernel; };
     in {
     nixosConfigurations.ZenNix = nixpkgs.lib.nixosSystem {
-      specialArgs = { pkgs-unstable = nixpkgs-unstable.legacyPackages.x86_64-linux; };
+      specialArgs = {
+        pkgs-unstable = nixpkgs-unstable.legacyPackages.x86_64-linux;
+        hyprland = inputs.hyprland-custom.packages.x86_64-linux.hyprland;
+      };
       modules = [
         impermanence.nixosModules.impermanence
 

@@ -1,8 +1,8 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs, pkgs-unstable, hyprland ? null, ... }:
 {
   services.displayManager.ly.enable = true;
   programs.hyprland.enable = true;
-  programs.hyprland.package = pkgs-unstable.hyprland;
+  programs.hyprland.package = if hyprland != null then hyprland else pkgs-unstable.hyprland;
   xdg.portal.enable = true;
   #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   programs.firefox.enable = true;
