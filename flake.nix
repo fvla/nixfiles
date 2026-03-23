@@ -39,6 +39,13 @@
         { networking.hostName = "ZenNix"; }
         { system.stateVersion = "25.11"; }
         { nixpkgs.hostPlatform = "x86_64-linux"; }
+	      {
+          boot.kernelParams = [
+            "video=DP-1:3840x2160@120"
+            "video=DP-2:3840x2160@120"
+            "video=DP-3:3840x2160@120"
+          ];
+        }
       ];
     };
 
