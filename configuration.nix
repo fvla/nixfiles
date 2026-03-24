@@ -12,7 +12,7 @@
     "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
   ];
 
-  environment.systemPackages = with pkgs; [vim emacs vscode wget git kitty];
+  environment.systemPackages = with pkgs; [vim emacs vscode wget git kitty jq];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
