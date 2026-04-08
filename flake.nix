@@ -41,7 +41,7 @@
         ./desktop/mangowc.nix
         ./programs/podman.nix
         ./programs/steam.nix
-        cachyosKernels.linux-cachyos-latest-lto-zen4
+        cachyosKernels.linux-cachyos-latest-lto-x86_64-v3
         { networking.hostName = "ZenNix"; }
         { system.stateVersion = "25.11"; }
         { nixpkgs.hostPlatform = "x86_64-linux"; }
