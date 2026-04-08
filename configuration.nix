@@ -12,7 +12,7 @@
     "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
   ];
 
-  environment.systemPackages = with pkgs; [vim emacs vscode wget git kitty jq];
+  environment.systemPackages = with pkgs; [vim emacs vscode wget git kitty jq glibcLocales];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -49,6 +49,16 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
+  i18n.supportedLocales = [ "all" ];
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-lgc-plus
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    noto-fonts-color-emoji
+    noto-fonts-monochrome-emoji
+    unifont
+  ];
 
   services.xserver.xkb = { layout = "us"; variant = ""; }; # X11 keymap
   services.printing.enable = true;

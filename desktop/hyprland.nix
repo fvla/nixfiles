@@ -23,5 +23,8 @@
   services.dbus.enable = true;
   services.dbus.packages = [ pkgs.gcr ];
 
-  fonts.packages = with pkgs-unstable; [ font-awesome_4 ]; # for waybar
+  fonts.packages = with pkgs-unstable; [
+    font-awesome # for default waybar
+    vista-fonts # consolas my beloved
+  ];
 }

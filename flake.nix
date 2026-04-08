@@ -27,7 +27,7 @@
     in {
     nixosConfigurations.ZenNix = nixpkgs.lib.nixosSystem {
       specialArgs = {
-        pkgs-unstable = nixpkgs-unstable.legacyPackages.x86_64-linux;
+        pkgs-unstable = import nixpkgs-unstable { system = "x86_64-linux"; config.allowUnfree = true; };
         hyprland = inputs.hyprland-custom.packages.x86_64-linux.hyprland;
       };
       modules = [
