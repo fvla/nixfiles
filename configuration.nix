@@ -6,10 +6,12 @@
   nix.settings.substituters = [
     "https://cache.garnix.io"
     "https://attic.xuyh0120.win/lantian"
+    "https://hyprland.cachix.org"
   ];
   nix.settings.trusted-public-keys = [
     "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
     "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+    "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
   ];
 
   environment.systemPackages = with pkgs; [vim emacs vscode wget git kitty jq glibcLocales];
