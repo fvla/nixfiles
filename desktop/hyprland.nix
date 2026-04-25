@@ -8,16 +8,29 @@
   programs.firefox.enable = true;
   environment.systemPackages = with pkgs-unstable; [
     kitty wofi
+
     kdePackages.dolphin
     kdePackages.qtsvg
     kdePackages.kio
     kdePackages.kio-fuse
     kdePackages.kio-extras
+
     hyprpaper hyprpicker hyprshot
     waybar
 
+    hyprpolkitagent
     pkgs.gcr pkgs.libsecret
   ];
+  services.udisks2 = {
+    enable = true;
+    settings."mount_options.conf".defaults = {
+      # defaults = "ro";
+      allow = "exec,noexec,nodev,nosuid,atime,noatime,nodiratime,ro,rw,sync,dirsync,noload";
+      ntfs_defaults = "ro,uid=$UID,gid=$GID,windows_names";
+      ntfs_allow = "uid=$UID,gid=$GID,umask,dmask,fmask,locale,norecover,ignore_case,windows_names,compression,nocompression,big_writes";
+    };
+  };
+  security.polkit.enable = true;
   security.pam.services.ly.enableGnomeKeyring = true;
   services.gnome.gnome-keyring.enable = true;
   services.dbus.enable = true;
