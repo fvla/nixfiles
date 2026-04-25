@@ -18,7 +18,7 @@
     impermanence.url = "github:nix-community/impermanence";
     impermanence.inputs.nixpkgs.follows = "nixpkgs";
 
-    hyprland-custom.url = "github:fvla/Hyprland/scroll-center-behavior";
+    hyprland-custom.url = "github:hyprwm/Hyprland";
   };
 
   outputs = { self, sysflake, nixpkgs, nixpkgs-unstable, nixos-hardware, nix-cachyos-kernel, impermanence, ... }@inputs:
@@ -41,7 +41,7 @@
         ./desktop/mangowc.nix
         ./programs/podman.nix
         ./programs/steam.nix
-        cachyosKernels.linux-cachyos-latest-lto-x86_64-v3
+        cachyosKernels.linux-cachyos-latest-lto-zen4
         { networking.hostName = "ZenNix"; }
         { system.stateVersion = "25.11"; }
         { nixpkgs.hostPlatform = "x86_64-linux"; }
