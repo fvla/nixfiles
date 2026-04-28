@@ -20,6 +20,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_6_18;
   boot.supportedFilesystems = [ "btrfs" "vfat" "tmpfs" "ext4" "ntfs" ];
+  boot.kernelParams = [ "nvme_core.default_ps_max_latency_us=0" ];
 
   # ===== Networking =====
   networking.hostName = lib.mkDefault "generic-nix";
@@ -32,6 +33,13 @@
     enable = true;
     nssmdns4 = true;
     openFirewall = true;
+
+    publish = {
+      enable = true;
+      addresses = true;
+      workstation = true;
+      domain = true;
+    };
   };
 
 
@@ -70,6 +78,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    jack.enable = true;
   };
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
