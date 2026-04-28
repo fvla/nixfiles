@@ -8,8 +8,6 @@
   description = "NixOS root system flake";
 
   inputs = {
-    sysflake.url = "/etc/nixos";
-
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
@@ -21,7 +19,7 @@
     hyprland-custom.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { self, sysflake, nixpkgs, nixpkgs-unstable, nixos-hardware, nix-cachyos-kernel, impermanence, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, nix-cachyos-kernel, impermanence, ... }@inputs:
     let
       cachyosKernels = import "${self}/kernels/cachyos.nix" { inherit nix-cachyos-kernel; };
     in {
@@ -33,7 +31,6 @@
       modules = [
         impermanence.nixosModules.impermanence
 
-        sysflake.nixosModules.users
         ./configuration.nix
         ./storage/impermanence-lite.nix
         ./hardware/nvidia.nix
@@ -59,7 +56,6 @@
     nixosConfigurations.MBP142 = nixpkgs.lib.nixosSystem {
       specialArgs = { pkgs-unstable = nixpkgs-unstable.legacyPackages.x86_64-linux; };
       modules = [
-        sysflake.nixosModules.users
         ./configuration.nix
         ./hardware/MBP142.nix
         ./desktop/pantheon.nix
