@@ -33,6 +33,7 @@
 
         ./configuration.nix
         ./storage/impermanence-lite.nix
+        ./storage/swap.nix
         ./hardware/nvidia.nix
         ./desktop/hyprland.nix
         ./desktop/mangowc.nix
