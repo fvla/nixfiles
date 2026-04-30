@@ -37,7 +37,6 @@
         ./hardware/nvidia.nix
         ./desktop/hyprland.nix
         ./desktop/mangowc.nix
-        ./desktop/sway.nix
         ./programs/podman.nix
         ./programs/steam.nix
         cachyosKernels.linux-cachyos-latest-lto-zen4
